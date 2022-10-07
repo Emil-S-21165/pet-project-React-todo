@@ -1,4 +1,3 @@
-import React from 'react';
 import '../style.css';
 
 const TodoAddTask = ({todo, change, submit}) => {
@@ -9,7 +8,8 @@ const TodoAddTask = ({todo, change, submit}) => {
                     <div className="form-field">
                         <input type="text" placeholder="Add task" 
                         value={todo} 
-                        onChange={change} />
+                        onChange={change}
+                        required />
                     </div>
                     <div className="form-buttons">
                         <button className="button">Add</button>

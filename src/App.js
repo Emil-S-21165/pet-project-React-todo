@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
+import useLocalStorage from './hooks/useLocalStorage';
 import TodoAddTask from './components/todoAddTask';
 import TodoList from './components/todoList';
 import './style.css';
 
 const App = () => {
   const [todo, setTodo] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useLocalStorage('task', []);
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -38,7 +39,6 @@ const App = () => {
     const updatedTodos = todos.filter(item => item.id !== todoId)
 
     setTodos(updatedTodos)
-    
   }
 
   return (

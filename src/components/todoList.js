@@ -9,11 +9,12 @@ const TodoList = ({done, del, todos}) => {
           {todos.map(todo=> (
             <TodoItem 
             key={todo.id} 
-            id={todo.id}
+            id={todo.id} 
             task={todo.task} 
             onDelete={del} 
-            onDone={done}
-            done={todo.done} />
+            onDone={done} 
+            done={todo.done} 
+            />
           ))}
         </ul>
     </div>
