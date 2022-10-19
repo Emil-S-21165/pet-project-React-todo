@@ -17,35 +17,29 @@ const App = () => {
     }
 
     setTodos([{id: Date.now(), task: todo, done: false}, ...todos])
-
-    console.log(todos);
   }
 
   const onDone = (todoId) => {
-    const index = todos.findIndex(item => item.id === todoId)
-    const dublicateTodos = [...todos]
-
-    dublicateTodos[index] = {
-      id: todos[index].id, 
-      task: todos[index].task,
-      done: !todos[index].done,
-    }
-
-    setTodos(dublicateTodos)
-    console.log(todos)
+    const updatedTodos = [...todos].map((todo) => {
+      if(todo.id === todoId) {
+        todo.done = !todo.done
+      }
+      return todo
+    })
+    setTodos(updatedTodos)
   }
 
   const onDelete = (todoId) => {
-    const updatedTodos = todos.filter(item => item.id !== todoId)
+    const deletedTodos = todos.filter(item => item.id !== todoId)
 
-    setTodos(updatedTodos)
+    setTodos(deletedTodos)
   }
 
   return (
     <main>
     <div className="todo-form-container">
         <h1 className="form-title">
-            Todo App
+            Todo App: {todos.length} {todos.length === 1 ? 'task' : 'tasks'}
         </h1>
         <TodoAddTask 
         todo={todo} 

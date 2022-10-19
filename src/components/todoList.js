@@ -8,12 +8,12 @@ const TodoList = ({done, del, todos}) => {
       <ul className="list-field">
           {todos.map(todo=> (
             <TodoItem 
-            key={todo.id} 
-            id={todo.id} 
-            task={todo.task} 
-            onDelete={del} 
-            onDone={done} 
-            done={todo.done} 
+            key={todo.id}
+            id={todo.id}
+            task={todo.task}
+            onDelete={del}
+            onDone={done}
+            done={todo.done}
             />
           ))}
         </ul>
